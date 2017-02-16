@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+    <meta name="author" content="name">
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"
+    >
+    </script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/home.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  </head>
+  <body ng-app='DesignerLane'>
+    <div class = 'row' ng-controller='main'>
+
+
+      <div id ='us' class='col-md-2 col-xs-12'>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+              <img class='nav-logo' src='img/logo.jpg'/>
+
+            </a>
+            <div ng-repeat='link in NavMenuItems'>
+                <a href="#" class="list-group-item list-group-item-action">{{link}}</a>
+            </div>
+          </div>
+
+      </div>
+
+
+
+
+      <div id='new' class='col-md-7 col-xs-12'>
+        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+            <img ng-src="{{slide.src}}" style="margin:auto;">
+            <div class="carousel-caption">
+              <p>{{slide.caption}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div id='trending' class='col-md-3 col-xs-12'>
+        <div class="list-group">
+          <div class="image-card" style='background:url(img/c.jpg);background-size: cover;'>
+            <div class='cover'></div>
+            <div class="image-card-text">
+              <h5 class="card-text">Designers battle it out at Design Indaba</h5>
+            </div>
+          </div>
+          <div class="image-card" style='background:url(img/d.jpg);background-size: cover;'>
+            <div class='cover'></div>
+            <div class="image-card-text">
+              <h5 class="card-text">Shimla sisters set to make outstanding perfomance</h5>
+            </div>
+          </div>
+          <div class="image-card" style='background:url(img/f.jpg);background-size: cover;'>
+            <div class='cover'></div>
+            <div class="image-card-text">
+              <h5 class="card-text">Boyz n Buck or Boys n Trucks ?</h5>
+            </div>
+          </div>
+          <div class="image-card" style='background:url(img/b.jpg);background-size: cover;'>
+            <div class='cover'></div>
+            <div class="image-card-text">
+              <h5 class="card-text"></h5>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
