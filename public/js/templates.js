@@ -1,4 +1,11 @@
-Handlebars.registerHelper('firstItem', function (array){return array[0]});
+Handlebars.registerHelper('when', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  else{
+    return options.inverse(this);
+  }
+});
 Handlebars.registerHelper('listItem', function (from, context, options){
     var item = "";
     for (var i = from;i<context.length; i++) {
@@ -21,23 +28,44 @@ function getTemplateAjax(path, target, jsonData) {
     }
   });
 }
+function loadNews(){
+  var rt = ($(window).width() - ($( "#new" ).offset().left + $( "#new" ).outerWidth()));
+  $( "#new" ).animate({
+    maxWidth: "82%",
 
+  }, 500 )
+  .css({backgroundColor:"#fff"})
+  $('#new').removeClass('col-md-7')
+  //$('#new').addClass('col-md-12')
+  getTemplateAjax('/templates/news.handlebars','#new',{})
+}
+function loadTrending(){
+  $('#new').removeClass('col-md-7')
+  $('#new').addClass('col-md-7')
+}
+function loadHot(){
+  $('#new').removeClass('col-md-7')
+  $('#new').addClass('col-md-8')
+}
 var navData = {
     logo: '/img/logo.jpg' ,
     links: [
-            {title:'Home',href:'#'},
-            {title:'News',href:'#'},
-            {title:'Trending',href:'#'},
-            {title:'Updates',href:'#'},
-            {title:'Whats Hot',href:'#'},
-            {title:'More',href:'#'}
+            {title:'Home',href:'#',onClick:"loadNews()"},
+            {title:'News',href:'#' ,onClick:"loadNews()"},
+            {title:'Trending',href:'#',onClick:"loadTrending()"},
+            {title:'Updates',href:'#',onClick:"loadNews()"},
+            {title:'Whats Hot',href:'#',onClick:"loadHot()"},
+            {title:'More',href:'#',onClick:"loadNews()"}
          ]
 }
 var CarouselData = {
     images:[
+      {src:'/img/f.jpg',caption:'Da Les Lit at NMMU'},
       {src:'/img/h.jpg',caption:'Da Les Lit at NMMU'},
       {src:'/img/k.jpg',caption:'Da Les Lit at NMMU'},
       {src:'/img/l.jpg',caption:'Da Les Lit at NMMU'},
+      {src:'/img/b.jpg',caption:'Da Les Lit at NMMU'},
+      {src:'/img/c.jpg',caption:'Da Les Lit at NMMU'},
     ]
 }
 
