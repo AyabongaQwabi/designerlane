@@ -18,13 +18,19 @@ body{
   height:100vh;
   background:#4a5356;
 }
-
+#about{
+  overflow-y:scroll;
+  overflow-x:hidden;
+  height:100vh;
+}
 #new{
   height:100vh;
   background:black;
   padding:0;
   box-shadow:0px 0px 100px 0px black;
-  overflow-x: scroll;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  transition: max-width 0.5s linear;
 }
 .content-block{
   dispaly:inline;
@@ -60,7 +66,7 @@ body{
   margin-bottom: 10%;
 }
 #trending{
-  height:100vh;
+  height:100%;
   padding:0;
   overflow-y:scroll;
   overflow-x:hidden;
@@ -103,23 +109,167 @@ body{
 
 }
 .image-card:hover{
-  transform:scale(1.2);
+  transform:scale(1.07);
+  transition:transform .5s ease-in-out;
+  opacity: 0.9;
+
+}
+
+
+
+
+
+
+
+.parent {
+    width: 28%;
+    margin-left: 30px;
+    margin: 20px;
+    height: 200px;
+    border: 1px solid grey;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.child {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+a.card-cap{e;
+   font-size: 25px;
+   color: #ffffff !important;
+   font-family: sans-serif;
+   text-align: center;
+   margin: auto;
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   height: 60px;
+   cursor: pointer;
+   background:rgba(0, 0, 0, 0.5);;
+   /*text-decoration: none;*/
+}
+.parent:hover .child, .parent:focus .child {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.parent:hover .child:before, .parent:focus .child:before {
+    display: block;
+}
+
+.parent:hover a, .parent:focus a {
+    display: block;
+}
+
+.child:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(52,73,94,0.75);
+}
+
+/* Media Queries */
+@media screen and (max-width: 960px) {
+    .parent {width: 100%; margin: 20px 0px}
+        .wrapper {padding: 20px 20px;}
+}
+
+
+
+.badge{
+  margin:.5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.trending-card{
+  overflow: hidden;
+  height:150px;
+  border:2px solid dimgrey;
+}
+.trending-card img{
+  object-fit: cover;
+  max-height: 100%;
+}
+.trending-card .cover{
+  height:100%;
+  width:21vw;;
+}
+.trending-card:hover .cover{
+  transform:scale(1.2) rotate(7deg);
   transition:transform .5s ease-in-out;
 
+}.trending-card-text{
+  height:147px;
+  width:20vw;;width:20vw;;width:20vw;;
+  padding: 3%;
+  background:rgba(0,0,0.2);
+  z-index:0;
+  position: absolute;
+  margin-top: -16vh;
 }
+.trending-card-text h5{
+
+  color:white;
+  font-size: 20px;
+  font-weight: 900;
 
 
+  text-shadow: 1px 1px 2px black;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+.contact{
+  margin:5% 15%;
+  width:70%;
+  padding:5%;
+  border:1px solid grey;
+  box-shadow: 1px .1px 20px .1px rgba(0,0,0,1)
+}
 ::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
+  width: 4px;
+  height: 2px;
 }
 ::-webkit-scrollbar-thumb {
   background: #e1e1e1;
-  border: 0px none #ffffff;
+  border: 1px none #000;
   border-radius: 50px;
 }
 ::-webkit-scrollbar-thumb:hover {
