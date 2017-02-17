@@ -30,44 +30,123 @@ function getTemplateAjax(path, target, jsonData) {
 }
 function loadNews(){
   var rt = ($(window).width() - ($( "#new" ).offset().left + $( "#new" ).outerWidth()));
-  $( "#new" ).animate({
-    maxWidth: "82%",
+  $( "#new" )
+            .css({display:'block'})
+            .animate({
+              maxWidth: "82%",
 
-  }, 500 )
-  .css({backgroundColor:"#fff"})
-  $('#new').removeClass('col-md-7')
-  //$('#new').addClass('col-md-12')
+            }, 300 )
+            .css({backgroundColor:"#fff"})
+            .removeClass('col-md-7');
   getTemplateAjax('/templates/news.handlebars','#new',{})
 }
-function loadTrending(){
-  $('#new').removeClass('col-md-7')
-  $('#new').addClass('col-md-7')
-}
-function loadHot(){
-  $('#new').removeClass('col-md-7')
-  $('#new').addClass('col-md-8')
-}
+
+
 var navData = {
     logo: '/img/logo.jpg' ,
     links: [
-            {title:'Home',href:'#',onClick:"loadNews()"},
-            {title:'News',href:'#' ,onClick:"loadNews()"},
+            {title:'Home',href:'#',onClick:"loadHome()"},
+            {title:'Blog',href:'#' ,onClick:"loadNews()"},
             {title:'Trending',href:'#',onClick:"loadTrending()"},
             {title:'Updates',href:'#',onClick:"loadNews()"},
             {title:'Whats Hot',href:'#',onClick:"loadHot()"},
-            {title:'More',href:'#',onClick:"loadNews()"}
+            {title:'News',href:'#',onClick:"loadNews()"},
+            {title:'Enquire',href:'#',onClick:"loadEnquiries()"},
+            {title:'About us',href:'#',onClick:"loadAbout()"}
          ]
 }
+
 var CarouselData = {
     images:[
-      {src:'/img/f.jpg',caption:'Da Les Lit at NMMU'},
-      {src:'/img/h.jpg',caption:'Da Les Lit at NMMU'},
-      {src:'/img/k.jpg',caption:'Da Les Lit at NMMU'},
-      {src:'/img/l.jpg',caption:'Da Les Lit at NMMU'},
-      {src:'/img/b.jpg',caption:'Da Les Lit at NMMU'},
-      {src:'/img/c.jpg',caption:'Da Les Lit at NMMU'},
+      {src:'/img/g.jpg',caption:'Design Indaba to beshosted at Nelson Mandela Metropolitan University'},
+      {src:'/img/h.jpg',caption:'Fashion ya Kasi'},
+      {src:'/img/k.jpg',caption:'Hottest DJ in East London'},
+      {src:'/img/l.jpg',caption:'Frenzy with the ladies'},
+      {src:'/img/b.jpg',caption:'Flexy'},
+      {src:'/img/c.jpg',caption:'Proper heavens'},
     ]
 }
+var HotCarouselData = {
+    images:[
+      {src:'/img/8.jpg',caption:'Design Indaba to beshosted at Nelson Mandela Metropolitan University'},
+      {src:'/img/6.jpg',caption:'Fashion ya Kasi'},
+      {src:'/img/7.jpg',caption:'Hottest DJ in East London'},
+      {src:'/img/10.jpg',caption:'Frenzy with the ladies'},
+      {src:'/img/g.jpg',caption:'Flexy'},
+      {src:'/img/c.jpg',caption:'Proper heavens'},
+    ]
+}
+var CarouselData2 = {
+    images:[
+      {src:'/img/m.jpg',caption:'Moments before Acute Pressure'},
+      {src:'/img/n.jpg',caption:'Serios with Tau'},
+      {src:'/img/o.jpg',caption:'We di it twice'},
+      {src:'/img/p.jpg',caption:'When its got you'},
+      {src:'/img/q.jpg',caption:'Flexy skills'},
+      {src:'/img/r.jpg',caption:'Proper heavens'},
+      {src:'/img/f.jpg',caption:'Da Les Lit at NMMU'},
+      {src:'/img/h.jpg',caption:'Fashion ya Kasi'},
+      {src:'/img/k.jpg',caption:'Hottest DJ in East London'},
+      {src:'/img/l.jpg',caption:'Frenzy with the ladies'},
+      {src:'/img/b.jpg',caption:'Flexy'},
+      {src:'/img/c.jpg',caption:'Proper heavens'},
+    ]
+}
+function loadTrending(){
+  $( "#new" )
+            .css({display:'block'})
+            .animate({
+              maxWidth: "82%",
+            }, 100 )
+            .css({backgroundColor:"#fff"})
+            .removeClass('col-md-7');
+  getTemplateAjax('/templates/trending.handlebars','#new',CarouselData2)
+}
+function loadEnquiries(){
+  $( "#new" )
+            .css({display:'block'})
+            .animate({
+              maxWidth: "82%",
+            }, 100 )
+            .css({backgroundColor:"#fff"})
+            .removeClass('col-md-7');
+  getTemplateAjax('/templates/enquiries.handlebars','#new',{})
+}
+function loadAbout(){
+  $( "#new" )
+            .css({
+              width: "toggle",
 
+            }, 100 )
+            .animate({
+              width: "toggle",
+
+            }, 300 )
+            .css({backgroundColor:"#fff"})
+            .removeClass('col-md-7');
+}
+function loadHome(){
+  $('#new')
+      .css({display:'block'})
+      .animate({
+        maxWidth: "82%",
+        display:'block'
+      }, 100 )
+      .addClass('col-md-7')
+  getTemplateAjax('/templates/nav.handlebars','#us',navData)
+  getTemplateAjax('/templates/carousel.handlebars','#new',CarouselData)
+}
+function loadHot(){
+  $('#new')
+      .css({display:'block'})
+      .animate({
+        maxWidth: "82%",
+        display:'block'
+      }, 100 )
+      .addClass('col-md-12')
+  getTemplateAjax('/templates/nav.handlebars','#us',navData)
+  getTemplateAjax('/templates/carousel.handlebars','#new',HotCarouselData)
+}
 getTemplateAjax('/templates/nav.handlebars','#us',navData)
 getTemplateAjax('/templates/carousel.handlebars','#new',CarouselData)
+getTemplateAjax('/templates/about.handlebars','#about',{})
