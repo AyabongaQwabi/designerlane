@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/AyabongaQwabi/untondo-artistry.png?label=ready&title=Ready)](https://waffle.io/AyabongaQwabi/untondo-artistry)
 # Design Collective Website Skeleton
 
 This is a demonstration of what the Design Collective website upon decision may look like.
