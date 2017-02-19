@@ -78,12 +78,12 @@ var HotCarouselData = {
 }
 var CarouselData2 = {
     images:[
-      {src:'/img/m.jpg',caption:'Moments before Acute Pressure'},
-      {src:'/img/n.jpg',caption:'Serios with Tau'},
-      {src:'/img/o.jpg',caption:'We di it twice'},
+      {src:'/img/m.jpg',caption:'Moments of Pressure'},
+      {src:'/img/n.jpg',caption:'Serios with Cassper'},
+      {src:'/img/o.jpg',caption:'We did it twice'},
       {src:'/img/p.jpg',caption:'When its got you'},
       {src:'/img/q.jpg',caption:'Flexy skills'},
-      {src:'/img/r.jpg',caption:'Proper heavens'},
+      {src:'/img/r.jpg',caption:'Proper styling of divs'},
       {src:'/img/f.jpg',caption:'Da Les Lit at NMMU'},
       {src:'/img/h.jpg',caption:'Fashion ya Kasi'},
       {src:'/img/k.jpg',caption:'Hottest DJ in East London'},
